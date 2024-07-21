@@ -1,5 +1,6 @@
 import {
 	Ability,
+	Creep,
 	Entity,
 	EventsSDK,
 	Hero,
@@ -26,5 +27,5 @@ const getLocalHero = (): Nullable<Hero> => {
 }
 
 EventsSDK.on('EntityDestroyed', (ent: Entity): void => {
-	console.log(ent)
+	console.log(ent instanceof Creep)
 })
