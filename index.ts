@@ -1,7 +1,5 @@
-import { EventsSDK } from "github.com/octarine-public/wrapper/index"
-import { AddEntry } from "github.com/octarine-public/wrapper/wrapper/Menu"
+import { EventsSDK, LocalPlayer } from "github.com/octarine-public/wrapper/index"
 
 EventsSDK.on("GameStarted", () => {
-	console.log("Hello world!")
-	AddEntry("12")
+	console.log(LocalPlayer?.Hero)
 })
