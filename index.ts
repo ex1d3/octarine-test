@@ -10,12 +10,20 @@ const particles = new ParticlesSDK(),
 
 const Entry = Menu.AddEntry("Utility")
 const OctarineTest = Entry.AddNode(
-	"OctarineTest",
+	"Rush",
 	"panorama/images/spellicons/monkey_king_tree_dance_png.vtex_c",
 	undefined,
 	0
 )
+
+const RushState = OctarineTest.AddToggle("State")
 const RushKey = OctarineTest.AddKeybind("Rush key")
+
+RushKey.OnPressed(() => {
+	if (!RushState.value) {
+		return
+	}
+})
 
 EventsSDK.on("GameEnded", () => {
 	particles.DestroyAll()
