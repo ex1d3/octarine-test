@@ -29,6 +29,6 @@ const getLocalHero = (): Nullable<Hero> => {
 EventsSDK.on('EntityDestroyed', (ent: Entity): void => {
 	if (ent instanceof Creep) {
 		const creep: Creep = ent as Creep;
-		console.log(creep.XPBounty, creep.Name)
+		console.log(creep.XPBounty, creep.XPBountyExtra, creep.Name)
 	}
 })
