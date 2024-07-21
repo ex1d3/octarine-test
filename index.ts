@@ -21,8 +21,11 @@ const RushKey = OctarineTest.AddKeybind("Rush key")
 
 RushKey.OnPressed(() => {
 	if (!RushState.value) {
+		console.log("Rush key pressed, but its offed!")
 		return
 	}
+
+	console.log("Rush key pressed!")
 })
 
 EventsSDK.on("GameEnded", () => {
