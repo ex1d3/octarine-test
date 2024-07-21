@@ -29,7 +29,7 @@ export class MenuManager {
 	private readonly iconNode = ImageData.Paths.Icons.magic_resist
 
 	private readonly utility = Menu.AddEntry("Utility")
-	private readonly baseNode = this.utility.AddNode("Aggro/deaggro", this.iconNode)
+	private readonly baseNode = this.utility.AddNode("AD", this.iconNode)
 
 	constructor(private readonly sleeper: Sleeper) {
 		this.State = this.baseNode.AddToggle("State", true)
