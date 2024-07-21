@@ -1,5 +1,7 @@
 import {
 	Ability,
+	Entity,
+	EventsSDK,
 	Hero,
 	LocalPlayer,
 	Menu,
@@ -14,7 +16,6 @@ const OctarineTest = Entry.AddNode(
 )
 
 const RushState = OctarineTest.AddToggle("State")
-const RushKey = OctarineTest.AddKeybind("Rush key")
 
 const getLocalHero = (): Nullable<Hero> => {
 	const hero: Nullable<Hero> = LocalPlayer?.Hero
@@ -24,18 +25,6 @@ const getLocalHero = (): Nullable<Hero> => {
 	return hero
 }
 
-RushKey.OnPressed(() => {
-	if (!RushState.value) {
-		console.log("Rush key pressed, but its offed!")
-		return
-	}
-
-	const hero: Nullable<Hero> = getLocalHero()
-	if (hero === undefined) {
-		return
-	}
-
-	hero.Spells.forEach((spell: Nullable<Ability>): void => {
-		spell?.UseAbility()
-	})
+EventsSDK.on('EntityDestroyed', (ent: Entity): void => {
+	console.log(ent)
 })
