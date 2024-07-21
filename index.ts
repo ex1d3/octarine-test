@@ -4,12 +4,7 @@ import {
 	Hero,
 	LocalPlayer,
 	Menu,
-	ParticlesSDK,
-	TickSleeper,
 } from "github.com/octarine-public/wrapper/index"
-
-const particles = new ParticlesSDK(),
-	Sleeper = new TickSleeper()
 
 const Entry = Menu.AddEntry("Utility")
 const OctarineTest = Entry.AddNode(
@@ -44,9 +39,4 @@ RushKey.OnPressed(() => {
 	hero.Spells.forEach((spell: Nullable<Ability>): void => {
 		spell?.UseAbility()
 	})
-})
-
-EventsSDK.on("GameEnded", () => {
-	particles.DestroyAll()
-	Sleeper.ResetTimer()
 })
