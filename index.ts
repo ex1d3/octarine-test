@@ -61,7 +61,7 @@ const bootstrap = new (class CAggroDeaggro {
 		this.menu.AggroKey.OnPressed(() => this.pressedAggro())
 	}
 
-	private pressedAgro() {
+	private pressedAggro() {
 		return
 	}
 })()
