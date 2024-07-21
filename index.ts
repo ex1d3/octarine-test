@@ -1,4 +1,4 @@
-import { Ability, EventsSDK, LocalPlayer, Hero } from "github.com/octarine-public/wrapper/index"
+import { Ability, EventsSDK, LocalPlayer, Hero, Entity } from "github.com/octarine-public/wrapper/index"
 import { MenuManager } from "./menu"
 
 const bootstarp = new (class COctarineTest {
@@ -6,6 +6,10 @@ const bootstarp = new (class COctarineTest {
 
 	constructor() {
 		this.menu.RushKey.OnPressed(() => this.pressedRush())
+	}
+
+	public EntityDestroyed(_: Entity) {
+		console.log("Entity destroyed!")
 	}
 
 	private pressedRush(): void {
@@ -33,3 +37,5 @@ const bootstarp = new (class COctarineTest {
 	}
 
 })
+
+EventsSDK.on("EntityDestroyed", entity => bootstarp.EntityDestroyed(entity))
