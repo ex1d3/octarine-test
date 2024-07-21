@@ -1,6 +1,5 @@
 import {
 	Ability,
-	EventsSDK,
 	Hero,
 	LocalPlayer,
 	Menu,
